@@ -1,12 +1,17 @@
 package org.springmvci.loja.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springmvci.loja.daos.ProdutoDAO;
 import org.springmvci.loja.models.Produto;
 
 @Controller
 public class ProdutosController {
 
+	@Autowired
+	private ProdutoDAO produtoDAO;
+	
 	@RequestMapping("/produtos/form")
 	public String form(){
 		return "produtos/form";
@@ -14,9 +19,8 @@ public class ProdutosController {
 	
 	@RequestMapping("/produtos")
 	public String gravar(Produto produto){
-		System.out.println("Titulo.: " + produto.getTitulo());
-		System.out.println("Descricao.:" + produto.getDescricao());
-		System.out.println("Pagina.:" + produto.getPaginas());
+		produtoDAO.gravar(produto);
+		
 		return "produtos/ok";
 	}
 }
