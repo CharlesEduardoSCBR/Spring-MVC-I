@@ -38,7 +38,7 @@ public class JPAConfiguration {
 
 		factoryBean.setJpaProperties(props);
 
-		factoryBean.setPackagesToScan("br.com.springmvci.loja.models");
+		factoryBean.setPackagesToScan("org.springmvci.loja.models");
 
 		return factoryBean;
 	}
