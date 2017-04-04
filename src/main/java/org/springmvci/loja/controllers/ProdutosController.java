@@ -3,8 +3,10 @@ package org.springmvci.loja.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springmvci.loja.daos.ProdutoDAO;
 import org.springmvci.loja.models.Produto;
+import org.springmvci.loja.models.TipoPreco;
 
 @Controller
 public class ProdutosController {
@@ -13,8 +15,11 @@ public class ProdutosController {
 	private ProdutoDAO produtoDAO;
 	
 	@RequestMapping("/produtos/form")
-	public String form(){
-		return "produtos/form";
+	public ModelAndView form(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("tipos", TipoPreco.values());
+		
+		return modelAndView;
 	}
 	
 	@RequestMapping("/produtos")
