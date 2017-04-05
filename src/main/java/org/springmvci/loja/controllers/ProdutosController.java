@@ -12,12 +12,13 @@ import org.springmvci.loja.models.Produto;
 import org.springmvci.loja.models.TipoPreco;
 
 @Controller
+@RequestMapping("/produtos")
 public class ProdutosController {
 
 	@Autowired
 	private ProdutoDAO produtoDAO;
 	
-	@RequestMapping("/produtos/form")
+	@RequestMapping("/form")
 	public ModelAndView form(){
 		ModelAndView modelAndView = new ModelAndView("produtos/form");
 		modelAndView.addObject("tipos", TipoPreco.values());
@@ -25,14 +26,14 @@ public class ProdutosController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/produtos", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public String gravar(Produto produto){
 		produtoDAO.gravar(produto);
 		
 		return "produtos/ok";
 	}
 	
-	@RequestMapping(value="/produtos", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listar(){
 		List<Produto> produtos = produtoDAO.listar();
 		ModelAndView modelAndView = new ModelAndView("produtos/lista");
