@@ -23,7 +23,7 @@ public class ProdutosController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/produtos", method = RequestMethod.GET)
+	@RequestMapping(value="/produtos", method = RequestMethod.POST)
 	public String gravar(Produto produto){
 		produtoDAO.gravar(produto);
 		
