@@ -3,6 +3,7 @@ package org.springmvci.loja.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springmvci.loja.daos.ProdutoDAO;
 import org.springmvci.loja.models.Produto;
@@ -16,16 +17,24 @@ public class ProdutosController {
 	
 	@RequestMapping("/produtos/form")
 	public ModelAndView form(){
-		ModelAndView modelAndView = new ModelAndView();
+		ModelAndView modelAndView = new ModelAndView("produtos/form");
 		modelAndView.addObject("tipos", TipoPreco.values());
 		
 		return modelAndView;
 	}
 	
-	@RequestMapping("/produtos")
+	@RequestMapping(value="/produtos", method = RequestMethod.GET)
 	public String gravar(Produto produto){
 		produtoDAO.gravar(produto);
 		
 		return "produtos/ok";
+	}
+	
+	@RequestMapping(value="/produtos", method = RequestMethod.GET)
+	public ModelAndView listar(){
+		ModelAndView modelAndView = new ModelAndView("produtos/lista");
+		modelAndView.addObject("produtos", produtoDAO.listar());
+		
+		return modelAndView;
 	}
 }
