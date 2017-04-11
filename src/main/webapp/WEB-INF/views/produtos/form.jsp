@@ -26,6 +26,11 @@
 		</div>
 
 		<div>
+			<label>Data de Lançamento</label>
+			<input type="text" name="dataLancamento"/>
+			<form:errors path="dataLancamento"/>
+		</div>
+		<div>
 			<label>Páginas</label> 
 			<input type="text" name="paginas" />
 			<form:errors path="paginas" />
