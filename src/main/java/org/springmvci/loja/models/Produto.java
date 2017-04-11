@@ -24,7 +24,7 @@ public class Produto {
 	@ElementCollection
 	private List<Preco> precos;
 	
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat
 	private Calendar dataLancamento;
 
 	public int getId() {
