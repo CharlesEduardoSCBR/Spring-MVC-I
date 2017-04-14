@@ -12,8 +12,8 @@
 	Casa do código</title>
 </head>
 <body>
-	<form:form action="${ s:mvcUrl('PC#gravar').build() }" method="post" commandName="produto">
 		<div>
+	<form:form action="${ s:mvcUrl('PC#gravar').build() }" method="post" commandName="produto" enctype="multipart/form-data">
 			<label>Título</label> 
 			<form:input path="titulo" />
 			<form:errors path="titulo" />
@@ -45,7 +45,7 @@
 		
 		<div>
 			<label>Súmario</label>
-			<input type="file" enctype="multipart/form-data" name="sumarioPath"/>
+			<input type="file" name="sumario"/>
 		</div>
 		<button type="submit">Cadastrar</button>
 	</form:form>

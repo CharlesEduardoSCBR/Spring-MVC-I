@@ -1,7 +1,6 @@
 package org.springmvci.loja.infra;
 
 import java.io.File;
-import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,17 +13,16 @@ public class FileSaver {
 
 	@Autowired
 	private HttpServletRequest request;
-	
-	public String grava(String baseFolder, MultipartFile file){
-		String realPath = request.getServletContext().getRealPath("/" + baseFolder);
-		String path = realPath + "/" + file.getOriginalFilename();
-		
+
+	public String grava(String baseFolder, MultipartFile file) {
+
 		try {
+			String realPath = request.getServletContext().getRealPath("/" + baseFolder);
+			String path = realPath + "/" + file.getOriginalFilename();
 			file.transferTo(new File(path));
-		} catch (IllegalStateException | IOException e) {
+			return baseFolder + "/" + file.getOriginalFilename();
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		
-		return path;
 	}
 }

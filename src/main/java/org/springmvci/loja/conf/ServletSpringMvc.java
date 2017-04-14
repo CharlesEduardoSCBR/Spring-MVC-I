@@ -6,6 +6,7 @@ import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import org.springmvci.loja.infra.FileSaver;
 
 public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -16,7 +17,7 @@ public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletI
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] { AppWebConfiguration.class, JPAConfiguration.class };
+		return new Class[] { AppWebConfiguration.class, JPAConfiguration.class, FileSaver.class };
 	}
 
 	@Override
@@ -33,8 +34,7 @@ public class ServletSpringMvc extends AbstractAnnotationConfigDispatcherServletI
 	}
 	
 	@Override
-	protected void customizeRegistration(Dynamic registration){
+	protected void customizeRegistration(Dynamic registration) {
 		registration.setMultipartConfig(new MultipartConfigElement(""));
 	}
-
 }
