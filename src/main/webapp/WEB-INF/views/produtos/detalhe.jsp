@@ -50,7 +50,7 @@
 				<nav id="main-nav">
 					
 					<ul class="clearfix">
-						<li><a href="/cart" rel="nofollow">Carrinho</a></li>
+						<li><a href="/carrinho" rel="nofollow">Seu Carrinho (${carrinhoCompras.quantidade })</a></li>
 
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 
