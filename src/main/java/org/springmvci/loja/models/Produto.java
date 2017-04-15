@@ -1,5 +1,6 @@
 package org.springmvci.loja.models;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
@@ -84,6 +85,10 @@ public class Produto {
 		this.sumarioPath = sumarioPath;
 	}
 
+	public BigDecimal precoPara(TipoPreco tipoPreco){
+		return precos.stream().filter(preco -> preco.getTipo().equals(tipoPreco)).findFirst().get().getValor();
+	}
+	
 	@Override
 	public String toString() {
 		return "Produto [titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + "]";
