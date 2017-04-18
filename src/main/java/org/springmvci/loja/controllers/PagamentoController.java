@@ -10,6 +10,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springmvci.loja.models.CarrinhoCompras;
+import org.springmvci.loja.models.DadosPagamento;
 
 @Controller
 @RequestMapping("/pagamento")

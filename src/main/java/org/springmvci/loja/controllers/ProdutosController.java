@@ -5,7 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.support.DaoSupport;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -22,6 +22,7 @@ import org.springmvci.loja.models.Produto;
 import org.springmvci.loja.models.TipoPreco;
 import org.springmvci.loja.validation.ProdutoValidation;
 
+@CacheEvict(value = "produtosHome", allEntries = true)
 @Controller
 @RequestMapping("/produtos")
 public class ProdutosController {

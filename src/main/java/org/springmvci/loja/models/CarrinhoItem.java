@@ -1,6 +1,5 @@
 package org.springmvci.loja.models;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class CarrinhoItem{
@@ -14,7 +13,7 @@ public class CarrinhoItem{
 	}
 	
 	public BigDecimal getPreco(){
-		return this.produto.precoPara(tipoPreco);
+		return this.produto.precoPara(this.tipoPreço);
 	}
 	
 	public Produto getProduto() {
