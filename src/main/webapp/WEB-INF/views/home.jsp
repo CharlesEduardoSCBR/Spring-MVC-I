@@ -59,9 +59,9 @@
 				<nav id="main-nav">
 
 					<ul class="clearfix">
-						<li><a href="/cart" rel="nofollow">Carrinho</a></li>
+						<li><a href="${s:mvcUrl('PC#listar').build()}" rel="nofollow">Carrinho</a></li>
 
-						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre
+						<li><a href="${s:mvcUrl('PC#form').build()}" rel="nofollow">Sobre
 								Nós</a></li>
 
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas
