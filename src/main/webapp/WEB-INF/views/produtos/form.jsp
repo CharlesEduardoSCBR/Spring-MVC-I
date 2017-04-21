@@ -8,6 +8,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<c:url value = "/resources/css" var = "cssPath" />
+
+<link rel="stylesheet" href="${cssPath}/bootstrap.min.css" />
+<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" />
+<script src="resources/js/bootstrap.min.js"></script>
 <title>Livros de java, Android, Iphone, PHP, Ruby e muito mais -
 	Casa do código</title>
 </head>
