@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix = "security" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,30 +26,30 @@
 	rel="publisher" />
 <title>Livros de Java, SOA, Android, iPhone, Ruby on Rails e
 	muito mais - Casa do Código</title>
-<link href="${contextPath}resources/css/cssbase-min.css"
+<link href="${cssPath}/cssbase-min.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'
 	rel='stylesheet' />
-<link href="${contextPath}resources/css/fonts.css" rel="stylesheet"
+<link href="${cssPath}/fonts.css" rel="stylesheet"
 	type="text/css" media="all" />
-<link href="${contextPath}resources/css/fontello-ie7.css"
+<link href="${cssPath}/fontello-ie7.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link href="${contextPath}resources/css/fontello-embedded.css"
+<link href="${cssPath}/fontello-embedded.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link href="${contextPath}resources/css/fontello.css" rel="stylesheet"
+<link href="${cssPath}/fontello.css" rel="stylesheet"
 	type="text/css" media="all" />
-<link href="${contextPath}resources/css/style.css" rel="stylesheet"
+<link href="${cssPath}/style.css" rel="stylesheet"
 	type="text/css" media="all" />
-<link href="${contextPath}resources/css/layout-colors.css"
+<link href="${cssPath}/layout-colors.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link href="${contextPath}resources/css/responsive-style.css"
+<link href="${cssPath}/responsive-style.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link href="${contextPath}resources/css/guia-do-programador-style.css"
+<link href="${cssPath}/guia-do-programador-style.css"
 	rel="stylesheet" type="text/css" media="all" />
-<link href="${contextPath}resources/css/produtos.css" rel="stylesheet"
+<link href="${cssPath}/produtos.css" rel="stylesheet"
 	type="text/css" media="all" />
 <link rel="canonical" href="http://www.casadocodigo.com.br/" />
-<link href="${contextPath}resources/css/book-collection.css"
+<link href="${cssPath}/book-collection.css"
 	rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
@@ -57,13 +59,20 @@
 			<a href="/" id="logo"> </a>
 			<div id="header-content">
 				<nav id="main-nav">
-
+					
 					<ul class="clearfix">
-						<li><a href="${s:mvcUrl('PC#listar').build()}" rel="nofollow">Carrinho</a></li>
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<li><a href="${s:mvcUrl('PC#listar').build()}" rel="nofollow">Lista de Produtos</a></li>
 
-						<li><a href="${s:mvcUrl('PC#form').build()}" rel="nofollow">Sobre
+							<li><a href="${s:mvcUrl('PC#form').build()}" rel="nofollow">Cadastro de Produtos
 								Nós</a></li>
+						</security:authorize>
+					
+							<li><a href="#" rel="nofollow">Carrinho</a></li>
 
+							<li><a href="#" rel="nofollow">Sobre
+								Nós</a></li>
+								
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas
 								Frequentes</a></li>
 					</ul>
